@@ -17,6 +17,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5275637602615997800, guid: b4f2573b18251dc4c84604424be42bfd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275637602615997800, guid: b4f2573b18251dc4c84604424be42bfd, type: 3}
       propertyPath: m_BaseOffset
       value: -0.13
       objectReference: {fileID: 0}
