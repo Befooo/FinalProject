@@ -2668,7 +2668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8551686191039477233, guid: f517a2cf42fbaa04a944e025999fa35e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 120.59
+      value: 90.82
       objectReference: {fileID: 0}
     - target: {fileID: 8551686191039477233, guid: f517a2cf42fbaa04a944e025999fa35e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2676,7 +2676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8551686191039477233, guid: f517a2cf42fbaa04a944e025999fa35e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27.76
+      value: -36.87
       objectReference: {fileID: 0}
     - target: {fileID: 8551686191039477233, guid: f517a2cf42fbaa04a944e025999fa35e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4404,7 +4404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8551686191039477233, guid: f517a2cf42fbaa04a944e025999fa35e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 141.76
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 8551686191039477233, guid: f517a2cf42fbaa04a944e025999fa35e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4412,7 +4412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8551686191039477233, guid: f517a2cf42fbaa04a944e025999fa35e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 126.82
+      value: -37.96
       objectReference: {fileID: 0}
     - target: {fileID: 8551686191039477233, guid: f517a2cf42fbaa04a944e025999fa35e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6360,13 +6360,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1559140911248464456, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 85.68264
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559140911248464456, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 44.916145
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559140911248464456, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -81.558105
+      objectReference: {fileID: 0}
     - target: {fileID: 2287407002138202505, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
-    - target: {fileID: 6056597526778283840, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
-      propertyPath: uniqueIdentifier
-      value: 8244f803-468c-48b2-b454-c4bcab6fcff8
+    - target: {fileID: 3223147238132854365, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 85.68264
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223147238132854365, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 44.916145
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223147238132854365, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -81.558105
       objectReference: {fileID: 0}
     - target: {fileID: 6876478011008435654, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6407,6 +6427,14 @@ PrefabInstance:
     - target: {fileID: 6876478011008435654, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070258655387945644, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 85.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070258655387945644, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -71.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
