@@ -9,14 +9,16 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private GameObject _equippedPrefab;
     [SerializeField] private float _weaponDamage;
     [SerializeField] private float _weaponRange;
+    [SerializeField] private bool _isRightHanded;
 
     public float WeaponDamage => _weaponDamage;
     public float WeaponRange => _weaponRange;
 
-    public void Spawn(Transform handTransform, Animator animator)
+    public void Spawn(Transform leftHand, Transform rightHand, Animator animator)
     {
         if (_equippedPrefab != null)
         {
+            Transform handTransform = _isRightHanded ? rightHand : leftHand;
             Instantiate(_equippedPrefab, handTransform);
         }
 

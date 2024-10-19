@@ -1733,7 +1733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 1
-  _handTransform: {fileID: 0}
+  _rightHand: {fileID: 0}
+  _leftHand: {fileID: 0}
   _defaultWeaponSO: {fileID: 0}
 --- !u!114 &709577377
 MonoBehaviour:
@@ -5151,7 +5152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 1
-  _handTransform: {fileID: 0}
+  _rightHand: {fileID: 0}
+  _leftHand: {fileID: 0}
   _defaultWeaponSO: {fileID: 0}
 --- !u!114 &1933980998
 MonoBehaviour:
