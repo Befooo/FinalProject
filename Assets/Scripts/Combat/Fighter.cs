@@ -71,7 +71,20 @@ namespace RPG.Combat
         void Hit()
         {
             if (target == null) return;
-            target.TakeDamage(_currentWeaponSO.WeaponDamage);
+
+            if (_currentWeaponSO.HasProjectile())
+            {
+                _currentWeaponSO.LaunchProjectile(_rightHand, _leftHand, target);
+            }
+            else
+            {
+                target.TakeDamage(_currentWeaponSO.WeaponDamage);
+            }
+        }
+
+        void Shoot()
+        {
+            Hit();
         }
         private bool GetIsInRange()
         {
