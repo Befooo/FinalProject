@@ -9,8 +9,20 @@ public class BaseStats : MonoBehaviour
 
     public float GetStat(EStat stat) => _progressionSO.GetStat(stat, _characterClass, _startingLevel);
 
-    public float GetExperienceReward()
+    public int GetLevel()
     {
-        return 10;
+        if (!TryGetComponent(out Experience experience)) return _startingLevel;
+
+        float currentXP = experience.ExperiencePoints;
+        int penultimateLevel = _progressionSO.GetLevels(EStat.EXPERIENCE_TO_LEVEL_UP, _characterClass);
+
+        for (int i = 1; i <= penultimateLevel; i++)
+        {
+            float XPToLevelUp = _progressionSO.GetStat(EStat.EXPERIENCE_TO_LEVEL_UP, _characterClass, i);
+
+            if (XPToLevelUp > currentXP) return i;
+        }
+
+        return penultimateLevel;
     }
 }

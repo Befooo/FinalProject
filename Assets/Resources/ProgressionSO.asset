@@ -22,6 +22,12 @@ MonoBehaviour:
       - 200
       - 400
       - 700
+    - _stat: 2
+      _values:
+      - 10
+      - 20
+      - 30
+      - 40
   - _characterClass: 1
     _stats:
     - _stat: 0

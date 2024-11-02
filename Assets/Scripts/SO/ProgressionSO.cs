@@ -38,6 +38,14 @@ public class ProgressionSO : ScriptableObject
         }
     }
 
+    public int GetLevels(EStat stat, ECharacterClass characterClass)
+    {
+        BuildLookUp();
+
+        float[] levels = _lookupTable[characterClass][stat];
+        return levels.Length;
+    }
+
     [Serializable]
     class ProgressionCharacterClass
     {

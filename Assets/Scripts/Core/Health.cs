@@ -8,13 +8,16 @@ namespace RPG.Core
 {
     public class Health : MonoBehaviour, ISaveable
     {
-        [FormerlySerializedAs("health")][SerializeField] float healthPoints = 100f;
+        [FormerlySerializedAs("health")] float healthPoints = -1f;
         private bool isDead = false;
         public bool IsDead => isDead;
 
         private void Start()
         {
-            healthPoints = GetComponent<BaseStats>().GetStat(EStat.HEALTH);
+            if (healthPoints < 0)
+            {
+                healthPoints = GetComponent<BaseStats>().GetStat(EStat.HEALTH);
+            }
         }
 
         public float GetPercentage()
@@ -44,7 +47,7 @@ namespace RPG.Core
         {
             if (!instigator.TryGetComponent(out Experience experience)) return;
 
-            experience.GainExperience(GetComponent<BaseStats>().GetExperienceReward());
+            experience.GainExperience(GetComponent<BaseStats>().GetStat(EStat.EXPERIENCE_REWARD));
         }
 
         public object CaptureState()
