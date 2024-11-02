@@ -14,12 +14,12 @@ namespace RPG.Core
 
         private void Start()
         {
-            healthPoints = GetComponent<BaseStats>().GetHealth();
+            healthPoints = GetComponent<BaseStats>().GetStat(EStat.HEALTH);
         }
 
         public float GetPercentage()
         {
-            return healthPoints / GetComponent<BaseStats>().GetHealth();
+            return healthPoints / GetComponent<BaseStats>().GetStat(EStat.HEALTH);
         }
 
         public void TakeDamage(GameObject instigator, float damage)

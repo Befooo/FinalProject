@@ -7,7 +7,7 @@ public class BaseStats : MonoBehaviour
     [SerializeField] private ECharacterClass _characterClass;
     [SerializeField] private ProgressionSO _progressionSO;
 
-    public float GetHealth() => _progressionSO.GetHealth(_characterClass, _startingLevel);
+    public float GetStat(EStat stat) => _progressionSO.GetStat(stat, _characterClass, _startingLevel);
 
     public float GetExperienceReward()
     {

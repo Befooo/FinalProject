@@ -14,23 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progressionCharacterClasses:
   - _characterClass: 0
-    _healths:
-    - 50
-    - 100
-    - 200
-    - 400
-    - 700
+    _stats:
+    - _stat: 0
+      _values:
+      - 50
+      - 100
+      - 200
+      - 400
+      - 700
   - _characterClass: 1
-    _healths:
-    - 50
-    - 100
-    - 200
-    - 400
-    - 700
+    _stats:
+    - _stat: 0
+      _values:
+      - 10
+    - _stat: 1
+      _values:
+      - 10
   - _characterClass: 3
-    _healths:
-    - 50
-    - 100
-    - 200
-    - 400
-    - 700
+    _stats:
+    - _stat: 0
+      _values:
+      - 20
+    - _stat: 1
+      _values:
+      - 20
