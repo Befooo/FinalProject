@@ -1,0 +1,1 @@
+public enum EHandEquipWeapon { RIGHT_HAND, LEFT_HAND }

@@ -7,7 +7,7 @@ namespace RPG.Combat
     public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] float timeBetweenAttacks = 1f;
-        [SerializeField] Transform _handTransform;
+        [SerializeField] Transform _leftHandTransform, _rightHandTransform;
         [SerializeField] private WeaponSO _defaultWeaponSO;
         private WeaponSO _currentWeaponSO;
 
@@ -24,7 +24,8 @@ namespace RPG.Combat
             _currentWeaponSO = weaponSO;
 
             Animator animator = GetComponent<Animator>();
-            weaponSO.SpawnWeapon(_handTransform, animator);
+
+            weaponSO.SpawnWeapon(_leftHandTransform, _rightHandTransform, animator);
         }
 
         private void Update()
