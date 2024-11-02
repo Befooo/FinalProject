@@ -2197,6 +2197,7 @@ GameObject:
   - component: {fileID: 6257251107994508217}
   - component: {fileID: 9118290533318163146}
   - component: {fileID: 2402969780708934810}
+  - component: {fileID: 1456170187523848562}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2376,6 +2377,7 @@ MonoBehaviour:
   _leftHandTransform: {fileID: 1513069426439516497}
   _rightHandTransform: {fileID: 1513069426439573843}
   _defaultWeaponSO: {fileID: 11400000, guid: 0856327ecae8325409806a4f41469a6b, type: 2}
+  _defaultWeaponName: Unarmed
 --- !u!114 &3143841306514263540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2453,3 +2455,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1456170187523848562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7381497481708148372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc207cddc8f499740bee218521dc1f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startingLevel: 1
+  _characterClass: 1
+  _progressionSO: {fileID: 11400000, guid: 66c911a552c7473459279c91f9b7bfc5, type: 2}

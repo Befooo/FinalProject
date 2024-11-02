@@ -13,7 +13,7 @@ namespace RPG.Combat
         [SerializeField] private string _defaultWeaponName = "Unarmed";
         private WeaponSO _currentWeaponSO;
 
-        private Health target;
+        private Health _target;
         private float timeSinceLastAttack = Mathf.Infinity;
 
         private void Start()
@@ -23,6 +23,8 @@ namespace RPG.Combat
                 EquipWeapon(_defaultWeaponSO);
             }
         }
+
+        public Health GetTarget() => _target;
 
         public void EquipWeapon(WeaponSO weaponSO)
         {
@@ -36,11 +38,11 @@ namespace RPG.Combat
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
-            if (target == null) return;
-            if (target.IsDead) return;
+            if (_target == null) return;
+            if (_target.IsDead) return;
             if (!GetIsInRange())
             {
-                GetComponent<Mover>().MoveTo(target.transform.position, 1f);
+                GetComponent<Mover>().MoveTo(_target.transform.position, 1f);
             }
             else
             {
@@ -51,7 +53,7 @@ namespace RPG.Combat
 
         private void AttackBehavior()
         {
-            transform.LookAt(target.transform);
+            transform.LookAt(_target.transform);
             if (timeSinceLastAttack > timeBetweenAttacks)
             {
                 // Trigger Hit()
@@ -69,15 +71,15 @@ namespace RPG.Combat
         // Animation Event
         void Hit()
         {
-            if (target == null) return;
+            if (_target == null) return;
 
             if (_currentWeaponSO.HasProjectile())
             {
-                _currentWeaponSO.LaunchProjectile(_leftHandTransform, _rightHandTransform, target);
+                _currentWeaponSO.LaunchProjectile(_leftHandTransform, _rightHandTransform, _target, gameObject);
             }
             else
             {
-                target.TakeDamage(_currentWeaponSO.WeaponDamage);
+                _target.TakeDamage(gameObject, _currentWeaponSO.WeaponDamage);
             }
         }
         public void Shoot()
@@ -87,7 +89,7 @@ namespace RPG.Combat
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < _currentWeaponSO.WeaponRange;
+            return Vector3.Distance(transform.position, _target.transform.position) < _currentWeaponSO.WeaponRange;
         }
         public bool CanAttack(GameObject combatTarget)
         {
@@ -98,12 +100,12 @@ namespace RPG.Combat
         public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            target = combatTarget.GetComponent<Health>();
+            _target = combatTarget.GetComponent<Health>();
         }
         public void Cancel()
         {
             StopAttack();
-            target = null;
+            _target = null;
             GetComponent<Mover>().Cancel();
         }
 

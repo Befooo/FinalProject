@@ -53,9 +53,9 @@ public class WeaponSO : ScriptableObject
 
     public bool HasProjectile() => _projectilePrefab != null;
 
-    public void LaunchProjectile(Transform leftHand, Transform rightHand, Health target)
+    public void LaunchProjectile(Transform leftHand, Transform rightHand, Health target, GameObject instigator)
     {
         Projectile projectileClone = Instantiate(_projectilePrefab, GetHandTransform(leftHand, rightHand).position, Quaternion.identity);
-        projectileClone.SetTargetHealth(target, _weaponDamage);
+        projectileClone.SetTargetHealth(target, instigator, _weaponDamage);
     }
 }

@@ -5917,6 +5917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: city_dwellers_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6359237674420732515, guid: 7531e460348e6014a9f9fe2f98cbf881, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6473221741092450280, guid: 7531e460348e6014a9f9fe2f98cbf881, type: 3}
       propertyPath: m_LocalPosition.x
       value: 58.22
@@ -6352,6 +6356,10 @@ PrefabInstance:
     - target: {fileID: 5799737592793620372, guid: c5443081557afff468f714fc3093c272, type: 3}
       propertyPath: m_Name
       value: Man_01_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799737592793620372, guid: c5443081557afff468f714fc3093c272, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5886585037864235970, guid: c5443081557afff468f714fc3093c272, type: 3}
       propertyPath: m_LocalPosition.x

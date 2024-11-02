@@ -15,6 +15,6 @@ MonoBehaviour:
   _equippedWeaponPrefab: {fileID: 5951086954303815546, guid: 9639695774a317443b4c9c6009ba20e6, type: 3}
   _overrideAnimatorController: {fileID: 22100000, guid: 6573549afca87624bad7f945e2861438, type: 2}
   _weaponRange: 20
-  _weaponDamage: 2
+  _weaponDamage: 20
   _handToEquipWeapon: 1
   _projectilePrefab: {fileID: 3537913850591206740, guid: 9a06cb3395e71154891e37f953b549b5, type: 3}
