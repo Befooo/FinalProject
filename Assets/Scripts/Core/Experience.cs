@@ -4,6 +4,7 @@ using UnityEngine;
 public class Experience : MonoBehaviour, ISaveable
 {
     [SerializeField] private float _experiencePoints = 0;
+    public float ExperiencePoints => _experiencePoints;
 
     public void GainExperience(float experience)
     {
