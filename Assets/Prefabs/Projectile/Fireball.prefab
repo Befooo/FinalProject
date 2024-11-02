@@ -9760,6 +9760,10 @@ MonoBehaviour:
   _speed: 10
   _hitEffect: {fileID: 4723266828310068499, guid: af6e51ca08d7efa428eb36b8e2ad1064, type: 3}
   _isHoming: 0
+  _maxLifeTime: 10
+  _destroyOnHit:
+  - {fileID: 4098106812526946883}
+  _lifeAfterImpact: 2
 --- !u!65 &1925573136091903321
 BoxCollider:
   m_ObjectHideFlags: 0

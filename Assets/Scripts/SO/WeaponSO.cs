@@ -1,4 +1,5 @@
 using RPG.Core;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SO/Weapon", fileName = "WeaponSO")]
@@ -19,7 +20,18 @@ public class WeaponSO : ScriptableObject
         DestroyOldWeapon(leftHand, rightHand);
 
         Transform weaponClone = Instantiate(_equippedWeaponPrefab, GetHandTransform(leftHand, rightHand));
-        animator.runtimeAnimatorController = _overrideAnimatorController;
+
+
+        var overrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
+
+        if (_overrideAnimatorController != null)
+        {
+            animator.runtimeAnimatorController = _overrideAnimatorController;
+        }
+        else if (overrideController != null)
+        {
+            animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
+        }
 
         weaponClone.name = WEAPON_NAME;
     }

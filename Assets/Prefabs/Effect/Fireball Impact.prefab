@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1816904898792253774}
   - component: {fileID: 3013584756576706898}
   - component: {fileID: 4240762763763900111}
+  - component: {fileID: 8616701505141181082}
   m_Layer: 0
   m_Name: Fireball Impact
   m_TagString: Untagged
@@ -4837,3 +4838,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8616701505141181082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4723266828310068499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15d07f12b7887e4dafc914c0c5a8d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
