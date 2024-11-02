@@ -7,12 +7,18 @@ public class Projectile : MonoBehaviour
     private Health _targetHealth;
     private float _damage = 0;
     [SerializeField] private float _speed = 1;
+    [SerializeField] private bool _isHoming;
+
+    private void Start()
+    {
+        transform.LookAt(GetAimLocation());
+    }
 
     private void Update()
     {
         if (_targetHealth == null) return;
 
-        transform.LookAt(GetAimLocation());
+        if (_isHoming) transform.LookAt(GetAimLocation());
         transform.Translate(Vector3.forward * _speed * Time.deltaTime);
     }
 
@@ -33,6 +39,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.GetComponent<Health>() != _targetHealth) return;
 
+        if (_targetHealth.IsDead) return;
         _targetHealth.TakeDamage(_damage);
         Destroy(gameObject);
     }

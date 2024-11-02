@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.m_ColorSpace
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3537913850591206740, guid: be215069f3ce9094aabd8c6f55f86cee, type: 3}
+      propertyPath: _isHoming
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4432207323100871003, guid: be215069f3ce9094aabd8c6f55f86cee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
