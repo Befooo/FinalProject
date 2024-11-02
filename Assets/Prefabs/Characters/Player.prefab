@@ -2467,6 +2467,8 @@ MonoBehaviour:
   weaponRange: 2
   timeBetweenAttacks: 1
   weaponDamage: 5
+  _handTransform: {fileID: 3434417792840589878}
+  _weaponSO: {fileID: 11400000, guid: 25499cafe59e8564b93fd9d97178a655, type: 2}
 --- !u!114 &8754057546420447866
 MonoBehaviour:
   m_ObjectHideFlags: 0

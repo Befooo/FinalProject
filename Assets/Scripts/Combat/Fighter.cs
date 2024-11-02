@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using RPG.Core;
 using UnityEngine;
 using RPG.Movement;
@@ -9,12 +6,19 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] float weaponRange = 2f;
         [SerializeField] float timeBetweenAttacks = 1f;
-        [SerializeField] float weaponDamage = 5f;
-        
+        [SerializeField] Transform _handTransform;
+        [SerializeField] private WeaponSO _weaponSO;
+
         private Health target;
         private float timeSinceLastAttack = Mathf.Infinity;
+
+        private void Start()
+        {
+            Animator animator = GetComponent<Animator>();
+            _weaponSO.SpawnWeapon(_handTransform, animator);
+        }
+
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
@@ -34,7 +38,7 @@ namespace RPG.Combat
         private void AttackBehavior()
         {
             transform.LookAt(target.transform);
-            if(timeSinceLastAttack > timeBetweenAttacks)
+            if (timeSinceLastAttack > timeBetweenAttacks)
             {
                 // Trigger Hit()
                 TriggerAttack();
@@ -51,16 +55,16 @@ namespace RPG.Combat
         // Animation Event
         void Hit()
         {
-            if (target==null) return;
-            target.TakeDamage(weaponDamage);
+            if (target == null) return;
+            target.TakeDamage(_weaponSO.WeaponDamage);
         }
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            return Vector3.Distance(transform.position, target.transform.position) < _weaponSO.WeaponRange;
         }
         public bool CanAttack(GameObject combatTarget)
         {
-            if(combatTarget == null) return false;
+            if (combatTarget == null) return false;
             Health targetToTest = combatTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead;
         }
