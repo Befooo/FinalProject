@@ -2330,6 +2330,7 @@ GameObject:
   - component: {fileID: 3122473752669746299}
   - component: {fileID: 5803986353613778713}
   - component: {fileID: 5622741679347469508}
+  - component: {fileID: 5912360269061666396}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2464,11 +2465,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f793eae9634f2844bec71fbdd3fee01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponRange: 2
   timeBetweenAttacks: 1
-  weaponDamage: 5
   _handTransform: {fileID: 3434417792840589878}
-  _weaponSO: {fileID: 11400000, guid: 25499cafe59e8564b93fd9d97178a655, type: 2}
+  _defaultWeaponSO: {fileID: 11400000, guid: 0856327ecae8325409806a4f41469a6b, type: 2}
 --- !u!114 &8754057546420447866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2540,3 +2539,30 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.45, y: 1.7, z: 0.45}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &5912360269061666396
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4754788407935198688}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
