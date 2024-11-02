@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     private Health _targetHealth;
     private float _damage = 0;
     [SerializeField] private float _speed = 1;
+    [SerializeField] private GameObject _hitEffect = null;
     [SerializeField] private bool _isHoming;
 
     private void Start()
@@ -41,6 +42,9 @@ public class Projectile : MonoBehaviour
 
         if (_targetHealth.IsDead) return;
         _targetHealth.TakeDamage(_damage);
+
+        if (_hitEffect != null) Instantiate(_hitEffect, GetAimLocation(), Quaternion.identity);
+
         Destroy(gameObject);
     }
 }
