@@ -11,7 +11,7 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
         Health health;
-        private void Start()
+        private void Awake()
         {
             health = GetComponent<Health>();
         }
@@ -28,7 +28,7 @@ namespace RPG.Control
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
             foreach (RaycastHit hit in hits)
             {
-                CombatTarget target = hit.transform.GetComponent<CombatTarget>(); 
+                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
                 if (target == null) continue;
                 if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
                 if (Input.GetMouseButton(1))
@@ -43,7 +43,7 @@ namespace RPG.Control
         {
             RaycastHit hit;
             bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
-            if(hasHit)
+            if (hasHit)
             {
                 if (Input.GetMouseButton(1))
                 {

@@ -1,4 +1,5 @@
 using System;
+using GameDevTV.Utils;
 using UnityEngine;
 
 public class BaseStats : MonoBehaviour
@@ -12,25 +13,40 @@ public class BaseStats : MonoBehaviour
 
     public event Action OnLevelUp;
 
-    private int _currentLevel;
+    private LazyValue<int> _currentLevel;
     public int CurrentLevel
     {
-        get
-        {
-            if (_currentLevel < 1) _currentLevel = CalculateLevel();
-            return _currentLevel;
-        }
+        get => _currentLevel.value;
 
         private set
         {
-            _currentLevel = value;
+            _currentLevel.value = value;
         }
+    }
+
+    private Experience _experience;
+
+    private void Awake()
+    {
+        _experience = GetComponent<Experience>();
+        _currentLevel = new LazyValue<int>(CalculateLevel);
+    }
+
+    private void OnEnable()
+    {
+        if (_experience == null) return;
+        _experience.OnExperienceGained += UpdateLevel;
+    }
+
+    private void OnDisable()
+    {
+        if (_experience == null) return;
+        _experience.OnExperienceGained -= UpdateLevel;
     }
 
     private void Start()
     {
-        CurrentLevel = CalculateLevel();
-        ListenExperienceStat();
+        _currentLevel.ForceInit();
     }
 
     public float GetStat(EStat stat) => GetBaseStat(stat) + GetAdditiveModifier(stat) * (1 + GetPercentageModifier(stat) / 100);
@@ -86,13 +102,6 @@ public class BaseStats : MonoBehaviour
         }
 
         return penultimateLevel;
-    }
-
-    private void ListenExperienceStat()
-    {
-        if (!TryGetComponent(out Experience experience)) return;
-
-        experience.OnExperienceGained += UpdateLevel;
     }
 
     private void UpdateLevel()

@@ -5,6 +5,7 @@ using RPG.Combat;
 using RPG.Core;
 using UnityEngine;
 using RPG.Movement;
+using GameDevTV.Utils;
 
 namespace RPG.Control
 {
@@ -15,28 +16,37 @@ namespace RPG.Control
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwelltime = 3f;
-        [Range(0,1)]
+        [Range(0, 1)]
         [SerializeField] float patrolSpeedFraction = 0.2f;
-        
+
         private Fighter fighter;
         private Health health;
         private Mover mover;
         GameObject player;
-        
-        Vector3 guardPosition;
+
+        LazyValue<Vector3> guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
         float timeSinceArrivedAtWaypoint = Mathf.Infinity;
         int currentWaypointIndex = 0;
-        
-        private void Start()
+
+        private void Awake()
         {
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
             player = GameObject.FindWithTag("Player");
             mover = GetComponent<Mover>();
-            
-            guardPosition = transform.position;
-            
+
+            guardPosition = new LazyValue<Vector3>(GetGuardPosition);
+        }
+
+        private Vector3 GetGuardPosition()
+        {
+            return transform.position;
+        }
+
+        private void Start()
+        {
+            guardPosition.ForceInit();
         }
 
         private void Update()
@@ -65,18 +75,18 @@ namespace RPG.Control
 
         private void PatrolBehaviour()
         {
-            Vector3 nextPosition = guardPosition;
-            
-            if(patrolPath != null)
+            Vector3 nextPosition = guardPosition.value;
+
+            if (patrolPath != null)
             {
-                if(AtWaypoint())
+                if (AtWaypoint())
                 {
                     timeSinceArrivedAtWaypoint = 0;
                     CycleWaypoint();
                 }
                 nextPosition = GetCurrentWaypoint();
             }
-            if(timeSinceArrivedAtWaypoint > waypointDwelltime)
+            if (timeSinceArrivedAtWaypoint > waypointDwelltime)
             {
                 mover.StartMoveAction(nextPosition, patrolSpeedFraction);
             }
