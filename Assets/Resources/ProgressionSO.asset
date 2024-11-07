@@ -28,6 +28,13 @@ MonoBehaviour:
       - 20
       - 30
       - 40
+    - _stat: 3
+      _values:
+      - 5
+      - 7
+      - 10
+      - 15
+      - 20
   - _characterClass: 1
     _stats:
     - _stat: 0
@@ -36,6 +43,9 @@ MonoBehaviour:
     - _stat: 1
       _values:
       - 10
+    - _stat: 3
+      _values:
+      - 8
   - _characterClass: 3
     _stats:
     - _stat: 0
@@ -44,3 +54,6 @@ MonoBehaviour:
     - _stat: 1
       _values:
       - 20
+    - _stat: 3
+      _values:
+      - 6

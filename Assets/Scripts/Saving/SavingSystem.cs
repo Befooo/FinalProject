@@ -19,7 +19,7 @@ namespace RPG.Saving
             {
                 buildIndex = (int)state["lastSceneBuildIndex"];
             }
-            yield return SceneManager.LoadSceneAsync(buildIndex);
+            yield return SceneManager.LoadSceneAsync(buildIndex);  
             RestoreState(state);
         }
 

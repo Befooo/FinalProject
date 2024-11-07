@@ -8,12 +8,13 @@ public class WeaponSO : ScriptableObject
     private const string WEAPON_NAME = "Weapon";
     [SerializeField] private Transform _equippedWeaponPrefab;
     [SerializeField] private AnimatorOverrideController _overrideAnimatorController;
-    [SerializeField] private float _weaponRange, _weaponDamage;
+    [SerializeField] private float _weaponRange, _weaponDamage, _percentageBonus;
     [SerializeField] private EHandEquipWeapon _handToEquipWeapon;
     [SerializeField] private Projectile _projectilePrefab = null;
 
     public float WeaponRange => _weaponRange;
     public float WeaponDamage => _weaponDamage;
+    public float PercentageBonus => _percentageBonus;
 
     public void SpawnWeapon(Transform leftHand, Transform rightHand, Animator animator)
     {
@@ -53,9 +54,9 @@ public class WeaponSO : ScriptableObject
 
     public bool HasProjectile() => _projectilePrefab != null;
 
-    public void LaunchProjectile(Transform leftHand, Transform rightHand, Health target, GameObject instigator)
+    public void LaunchProjectile(Transform leftHand, Transform rightHand, Health target, GameObject instigator, float calculatedDamage)
     {
         Projectile projectileClone = Instantiate(_projectilePrefab, GetHandTransform(leftHand, rightHand).position, Quaternion.identity);
-        projectileClone.SetTargetHealth(target, instigator, _weaponDamage);
+        projectileClone.SetTargetHealth(target, instigator, calculatedDamage);
     }
 }

@@ -20,6 +20,6 @@ public class UIEnemyHealth : MonoBehaviour
         if (_fighter.GetTarget() == null) { _healthValueTMP.text = "N/A"; return; }
 
         Health health = _fighter.GetTarget();
-        _healthValueTMP.text = String.Format("{0:0}%", health.GetPercentage() * 100);
+        _healthValueTMP.text = String.Format("{0:0}/{1:0}", health.HealthPoints, health.MaxHealthPoints);
     }
 }

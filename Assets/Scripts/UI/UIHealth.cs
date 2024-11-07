@@ -16,6 +16,6 @@ public class UIHealth : MonoBehaviour
 
     private void Update()
     {
-        _healthValueTMP.text = String.Format("{0:0}%", _health.GetPercentage() * 100);
+        _healthValueTMP.text = String.Format("{0:0}/{1:0}", _health.HealthPoints, _health.MaxHealthPoints);
     }
 }

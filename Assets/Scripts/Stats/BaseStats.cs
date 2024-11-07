@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BaseStats : MonoBehaviour
@@ -6,6 +7,10 @@ public class BaseStats : MonoBehaviour
     [SerializeField] private int _startingLevel = 1;
     [SerializeField] private ECharacterClass _characterClass;
     [SerializeField] private ProgressionSO _progressionSO;
+    [SerializeField] private GameObject _levelUpVFX;
+    [SerializeField] private bool _shouldUseModifiers = false;
+
+    public event Action OnLevelUp;
 
     private int _currentLevel;
     public int CurrentLevel
@@ -28,7 +33,43 @@ public class BaseStats : MonoBehaviour
         ListenExperienceStat();
     }
 
-    public float GetStat(EStat stat) => _progressionSO.GetStat(stat, _characterClass, _startingLevel);
+    public float GetStat(EStat stat) => GetBaseStat(stat) + GetAdditiveModifier(stat) * (1 + GetPercentageModifier(stat) / 100);
+
+    private float GetPercentageModifier(EStat eStat)
+    {
+        if (!_shouldUseModifiers) return 0;
+
+        float total = 0;
+
+        foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
+        {
+            foreach (float modifiers in provider.GetPercentageModifiers(eStat))
+            {
+                total += modifiers;
+            }
+        }
+
+        return total;
+    }
+
+    private float GetBaseStat(EStat stat) => _progressionSO.GetStat(stat, _characterClass, CurrentLevel);
+
+    private float GetAdditiveModifier(EStat stat)
+    {
+        if (!_shouldUseModifiers) return 0;
+
+        float total = 0;
+
+        foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
+        {
+            foreach (float modifiers in provider.GetAdditiveModifier(stat))
+            {
+                total += modifiers;
+            }
+        }
+
+        return total;
+    }
 
     public int CalculateLevel()
     {
@@ -57,6 +98,16 @@ public class BaseStats : MonoBehaviour
     private void UpdateLevel()
     {
         int newLevel = CalculateLevel();
-        if (newLevel > CurrentLevel) CurrentLevel = newLevel;
+        if (newLevel > CurrentLevel)
+        {
+            CurrentLevel = newLevel;
+            LevelUpEffect();
+            OnLevelUp?.Invoke();
+        }
+    }
+
+    private void LevelUpEffect()
+    {
+        Instantiate(_levelUpVFX, transform);
     }
 }

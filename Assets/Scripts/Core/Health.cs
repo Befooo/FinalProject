@@ -8,27 +8,38 @@ namespace RPG.Core
 {
     public class Health : MonoBehaviour, ISaveable
     {
-        [FormerlySerializedAs("health")] float healthPoints = -1f;
+        [SerializeField] private float regenerationPercentage = 70f;
+        [FormerlySerializedAs("health")] private float _healthPoints = -1f;
         private bool isDead = false;
         public bool IsDead => isDead;
 
+        public float HealthPoints => _healthPoints;
+        public float MaxHealthPoints => GetComponent<BaseStats>().GetStat(EStat.HEALTH);
+
         private void Start()
         {
-            if (healthPoints < 0)
+            GetComponent<BaseStats>().OnLevelUp += RegenerateHealth;
+            if (_healthPoints < 0)
             {
-                healthPoints = GetComponent<BaseStats>().GetStat(EStat.HEALTH);
+                _healthPoints = GetComponent<BaseStats>().GetStat(EStat.HEALTH);
             }
+        }
+
+        private void RegenerateHealth()
+        {
+            float regeHealthPoints = MaxHealthPoints * (regenerationPercentage / 100);
+            _healthPoints = Mathf.Max(_healthPoints, regeHealthPoints);
         }
 
         public float GetPercentage()
         {
-            return healthPoints / GetComponent<BaseStats>().GetStat(EStat.HEALTH);
+            return _healthPoints / MaxHealthPoints;
         }
 
         public void TakeDamage(GameObject instigator, float damage)
         {
-            healthPoints = Mathf.Max(healthPoints - damage, 0);
-            if (healthPoints == 0)
+            _healthPoints = Mathf.Max(_healthPoints - damage, 0);
+            if (_healthPoints == 0)
             {
                 Die();
                 AwardExperience(instigator);
@@ -52,13 +63,13 @@ namespace RPG.Core
 
         public object CaptureState()
         {
-            return healthPoints;
+            return _healthPoints;
         }
 
         public void RestoreState(object state)
         {
-            healthPoints = (float)state;
-            if (healthPoints == 0)
+            _healthPoints = (float)state;
+            if (_healthPoints == 0)
             {
                 Die();
             }

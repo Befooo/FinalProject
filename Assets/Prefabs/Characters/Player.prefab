@@ -2496,7 +2496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75687bcdcd2759541a069979c20fc6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 100
+  regenerationPercentage: 70
 --- !u!114 &3122473752669746299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2585,6 +2585,8 @@ MonoBehaviour:
   _startingLevel: 1
   _characterClass: 0
   _progressionSO: {fileID: 11400000, guid: 66c911a552c7473459279c91f9b7bfc5, type: 2}
+  _levelUpVFX: {fileID: 731992628608566502, guid: eb26ec135995a4c4db328555ea67ea8e, type: 3}
+  _shouldUseModifiers: 1
 --- !u!114 &4962948776096571599
 MonoBehaviour:
   m_ObjectHideFlags: 0
