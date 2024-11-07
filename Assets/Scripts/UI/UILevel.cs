@@ -15,6 +15,6 @@ public class UILevel : MonoBehaviour
 
     private void Update()
     {
-        _healthValueTMP.text = String.Format("{0}", _baseStats.GetLevel());
+        _healthValueTMP.text = String.Format("{0}", _baseStats.CalculateLevel());
     }
 }
