@@ -6,10 +6,12 @@ using RPG.Movement;
 using RPG.Combat;
 using RPG.Core;
 using System.Security.Cryptography;
+using UnityEngine.EventSystems;
+using TMPro;
 
 namespace RPG.Control
 {
-    public enum ECursorType { NONE, MOVEMENT, COMBAT }
+    public enum ECursorType { NONE, MOVEMENT, COMBAT, UI, PICK_UP }
 
     [Serializable]
     struct CursorMapping
@@ -29,26 +31,57 @@ namespace RPG.Control
 
         void Update()
         {
-            if (health.IsDead) return;
-            if (InteractWithCombat()) return;
+            if (InteractWithUI()) return;
+            if (health.IsDead) { SetCursor(ECursorType.NONE); return; }
+
+            if (InteractWithComponent()) return;
             if (InteractWithMovement()) return;
 
             SetCursor(ECursorType.NONE);
         }
 
-        bool InteractWithCombat()
+        private bool InteractWithComponent()
         {
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+
             foreach (RaycastHit hit in hits)
             {
-                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-                if (target == null) continue;
-                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
-                if (Input.GetMouseButton(1))
+                IRayCastable[] raycastables = hit.transform.GetComponents<IRayCastable>();
+
+                foreach (IRayCastable raycastable in raycastables)
                 {
-                    GetComponent<Fighter>().Attack(target.gameObject);
+                    if (raycastable.HandleRayCast(this))
+                    {
+                        SetCursor(raycastable.eCursorType);
+                        return true;
+                    }
                 }
-                SetCursor(ECursorType.COMBAT);
+            }
+
+            return false;
+        }
+
+        private RaycastHit[] RaycastAllSorted()
+        {
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            float[] distances = new float[hits.Length];
+            distances = new float[hits.Length];
+
+            for (int i = 0; i < hits.Length; i++)
+            {
+                distances[i] = hits[i].distance;
+            }
+
+            Array.Sort(distances, hits);
+
+            return hits;
+        }
+
+        private bool InteractWithUI()
+        {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                SetCursor(ECursorType.UI);
                 return true;
             }
             return false;

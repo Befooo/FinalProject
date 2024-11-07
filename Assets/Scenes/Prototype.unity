@@ -6183,6 +6183,30 @@ PrefabInstance:
       propertyPath: _defaultWeaponName
       value: Unarmed
       objectReference: {fileID: 0}
+    - target: {fileID: 7958014295186204557, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: _cursorMappings.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958014295186204557, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: _cursorMappings.Array.data[1].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 8859fce41c5d0a148ad0b7eebfca7fe9, type: 3}
+    - target: {fileID: 7958014295186204557, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: _cursorMappings.Array.data[3].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+    - target: {fileID: 7958014295186204557, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: _cursorMappings.Array.data[4].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 89f40d0702ab04b4eaa85fc24b20959b, type: 3}
+    - target: {fileID: 7958014295186204557, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: _cursorMappings.Array.data[3].cursorType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958014295186204557, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
+      propertyPath: _cursorMappings.Array.data[4].cursorType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9070258655387945644, guid: a06df1827f1e3ca4b8740864da4cfe94, type: 3}
       propertyPath: m_LocalPosition.x
       value: 85.7
