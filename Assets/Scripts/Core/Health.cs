@@ -2,12 +2,23 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using RPG.Saving;
 using GameDevTV.Utils;
+using UnityEngine.Events;
+using System;
 
 namespace RPG.Core
 {
     public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] private float regenerationPercentage = 70f;
+        [SerializeField] private TakeDamageEvent _takeDamage;
+
+
+        [Serializable]
+        public class TakeDamageEvent : UnityEvent<float>
+        {
+
+        }
+
         [FormerlySerializedAs("health")] private LazyValue<float> _healthPoints;
         private bool isDead = false;
         public bool IsDead => isDead;
@@ -63,6 +74,10 @@ namespace RPG.Core
             {
                 Die();
                 AwardExperience(instigator);
+            }
+            else
+            {
+                _takeDamage?.Invoke(damage);
             }
         }
 

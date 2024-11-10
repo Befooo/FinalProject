@@ -1713,6 +1713,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3875646908910051418, guid: bfb722ec60a1259418573f35a14f76f3, type: 3}
+      propertyPath: _takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4754788407935198688, guid: bfb722ec60a1259418573f35a14f76f3, type: 3}
       propertyPath: m_Name
       value: Player
