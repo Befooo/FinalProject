@@ -14,13 +14,13 @@ public class WeaponPickup : MonoBehaviour, IRayCastable
     {
         if (!other.gameObject.CompareTag("Player")) return;
 
-        other.GetComponent<Fighter>().EquipWeapon(_weaponSO);
-        StartCoroutine(IE_HideForSeconds(_reSpawnTime));
+        PickUp(other.GetComponent<Fighter>());
     }
 
     private void PickUp(Fighter fighter)
     {
         fighter.EquipWeapon(_weaponSO);
+        StartCoroutine(IE_HideForSeconds(_reSpawnTime));
     }
 
     private IEnumerator IE_HideForSeconds(float seconds)
