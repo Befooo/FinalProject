@@ -1,11 +1,13 @@
 using System.Collections;
 using RPG.Combat;
 using RPG.Control;
+using RPG.Core;
 using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour, IRayCastable
 {
     [SerializeField] private WeaponSO _weaponSO;
+    [SerializeField] private float _healthToRestore = 0;
     [SerializeField] private float _reSpawnTime = 5.0f;
 
     public ECursorType eCursorType => ECursorType.PICK_UP;
@@ -14,12 +16,19 @@ public class WeaponPickup : MonoBehaviour, IRayCastable
     {
         if (!other.gameObject.CompareTag("Player")) return;
 
-        PickUp(other.GetComponent<Fighter>());
+        PickUp(other.gameObject);
     }
 
-    private void PickUp(Fighter fighter)
+    private void PickUp(GameObject gameObject)
     {
-        fighter.EquipWeapon(_weaponSO);
+        if (_weaponSO != null)
+        {
+            gameObject.GetComponent<Fighter>().EquipWeapon(_weaponSO);
+        }
+        if (_healthToRestore > 0)
+        {
+            gameObject.GetComponent<Health>().Heal(_healthToRestore);
+        }
         StartCoroutine(IE_HideForSeconds(_reSpawnTime));
     }
 
@@ -44,7 +53,7 @@ public class WeaponPickup : MonoBehaviour, IRayCastable
     {
         if (Input.GetMouseButtonDown(0))
         {
-            PickUp(playerController.GetComponent<Fighter>());
+            PickUp(playerController.gameObject);
         }
 
         return true;

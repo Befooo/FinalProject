@@ -26,7 +26,7 @@ namespace RPG.Control
         Health health;
         [SerializeField] private CursorMapping[] _cursorMappings = null;
         [SerializeField] private float _maxNavMeshProjectionDistance = 1.0f;
-        [SerializeField] private float _maxPathLength = 40.0f;
+        [SerializeField] private float _raycastRadius = 1.0f;
         private void Awake()
         {
             health = GetComponent<Health>();
@@ -66,14 +66,14 @@ namespace RPG.Control
 
         private RaycastHit[] RaycastAllSorted()
         {
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), _raycastRadius);
             float[] distances = new float[hits.Length];
             distances = new float[hits.Length];
 
             for (int i = 0; i < hits.Length; i++)
             {
                 distances[i] = hits[i].distance;
-            }
+            } 
 
             Array.Sort(distances, hits);
 
@@ -111,6 +111,8 @@ namespace RPG.Control
             bool hasHit = RayCastNavMesh(out Vector3 hit);
             if (hasHit)
             {
+                if (!GetComponent<Mover>().CanMoveTo(hit)) return false;
+
                 if (Input.GetMouseButton(1))
                 {
                     GetComponent<Mover>().StartMoveAction(hit, 1f);
@@ -133,26 +135,7 @@ namespace RPG.Control
 
             target = navMeshHit.position;
 
-            NavMeshPath path = new NavMeshPath();
-            bool hasPath = NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
-            if (!hasPath) return false;
-            if (path.status != NavMeshPathStatus.PathComplete) return false;
-            if (GetPathLength(path) > _maxPathLength) return false;
-
             return true;
-        }
-
-        private float GetPathLength(NavMeshPath path)
-        {
-            float total = 0;
-
-            if (path.corners.Length < 2) return total;
-            for (int i = 0; i < path.corners.Length - 1; i++)
-            {
-                total += Vector3.Distance(path.corners[i], path.corners[i + 1]);
-            }
-
-            return total;
         }
 
         static Ray GetMouseRay()

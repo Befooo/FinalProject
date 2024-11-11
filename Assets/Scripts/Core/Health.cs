@@ -13,7 +13,6 @@ namespace RPG.Core
         [SerializeField] private TakeDamageEvent _takeDamage;
         [SerializeField] private UnityEvent _onDie;
 
-
         [Serializable]
         public class TakeDamageEvent : UnityEvent<float>
         {
@@ -110,6 +109,11 @@ namespace RPG.Core
             {
                 Die();
             }
+        }
+
+        public void Heal(float heal)
+        {
+            _healthPoints.value = Mathf.Max(_healthPoints.value + heal, MaxHealthPoints);
         }
     }
 }

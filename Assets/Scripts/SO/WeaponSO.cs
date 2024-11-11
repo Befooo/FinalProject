@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponSO : ScriptableObject
 {
     private const string WEAPON_NAME = "Weapon";
-    [SerializeField] private Transform _equippedWeaponPrefab;
+    [SerializeField] private Weapon _equippedWeaponPrefab;
     [SerializeField] private AnimatorOverrideController _overrideAnimatorController;
     [SerializeField] private float _weaponRange, _weaponDamage, _percentageBonus;
     [SerializeField] private EHandEquipWeapon _handToEquipWeapon;
@@ -16,12 +16,11 @@ public class WeaponSO : ScriptableObject
     public float WeaponDamage => _weaponDamage;
     public float PercentageBonus => _percentageBonus;
 
-    public void SpawnWeapon(Transform leftHand, Transform rightHand, Animator animator)
+    public Weapon SpawnWeapon(Transform leftHand, Transform rightHand, Animator animator)
     {
         DestroyOldWeapon(leftHand, rightHand);
 
-        Transform weaponClone = Instantiate(_equippedWeaponPrefab, GetHandTransform(leftHand, rightHand));
-
+        Weapon weaponClone = Instantiate(_equippedWeaponPrefab, GetHandTransform(leftHand, rightHand));
 
         var overrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
 
@@ -34,7 +33,9 @@ public class WeaponSO : ScriptableObject
             animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
         }
 
-        weaponClone.name = WEAPON_NAME;
+        weaponClone.gameObject.name = WEAPON_NAME;
+
+        return weaponClone;
     }
 
     private void DestroyOldWeapon(Transform leftHand, Transform rightHand)
