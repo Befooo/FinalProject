@@ -1,6 +1,7 @@
 using RPG.Core;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Projectile : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float _maxLifeTime = 10.0f;
     [SerializeField] private GameObject[] _destroyOnHit;
     [SerializeField] private float _lifeAfterImpact = 0.2f;
+    [SerializeField] private UnityEvent _onHit;
 
     private GameObject _instigator;
 
@@ -53,6 +55,7 @@ public class Projectile : MonoBehaviour
 
         _speed = 0;
 
+        _onHit?.Invoke();
         if (_hitEffect != null) Instantiate(_hitEffect, GetAimLocation(), Quaternion.identity);
 
         foreach (GameObject toDestroy in _destroyOnHit)

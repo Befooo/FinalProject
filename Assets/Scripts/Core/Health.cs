@@ -11,6 +11,7 @@ namespace RPG.Core
     {
         [SerializeField] private float regenerationPercentage = 70f;
         [SerializeField] private TakeDamageEvent _takeDamage;
+        [SerializeField] private UnityEvent _onDie;
 
 
         [Serializable]
@@ -72,6 +73,7 @@ namespace RPG.Core
             _healthPoints.value = Mathf.Max(_healthPoints.value - damage, 0);
             if (_healthPoints.value == 0)
             {
+                _onDie?.Invoke();
                 Die();
                 AwardExperience(instigator);
             }
@@ -98,7 +100,7 @@ namespace RPG.Core
 
         public object CaptureState()
         {
-            return _healthPoints;
+            return _healthPoints.value;
         }
 
         public void RestoreState(object state)
