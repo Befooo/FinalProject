@@ -27,7 +27,9 @@ namespace RPG.Dialogue.Editor
         }
         private void OnGUI()
         {
-            GUILayout.Label("Dialogue Editor", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Hello");
+            EditorGUILayout.LabelField("Hello 2");
+            EditorGUILayout.LabelField("Hello 3");
         }
     }
 }
