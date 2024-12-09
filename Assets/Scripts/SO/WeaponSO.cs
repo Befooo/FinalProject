@@ -1,9 +1,9 @@
+using GameDevTV.Inventories;
 using RPG.Core;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SO/Weapon", fileName = "WeaponSO")]
-public class WeaponSO : ScriptableObject
+public class WeaponSO : EquipableItem
 {
     private const string WEAPON_NAME = "Weapon";
     [SerializeField] private Weapon _equippedWeaponPrefab;

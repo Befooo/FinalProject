@@ -12,7 +12,7 @@ using UnityEngine.AI;
 
 namespace RPG.Control
 {
-    public enum ECursorType { NONE, MOVEMENT, COMBAT, UI, PICK_UP }
+    public enum ECursorType { NONE, MOVEMENT, COMBAT, UI, PICK_UP, FULL_PICK_UP }
 
     [Serializable]
     struct CursorMapping
@@ -27,6 +27,9 @@ namespace RPG.Control
         [SerializeField] private CursorMapping[] _cursorMappings = null;
         [SerializeField] private float _maxNavMeshProjectionDistance = 1.0f;
         [SerializeField] private float _raycastRadius = 1.0f;
+
+        bool isDraggingUI = false;
+
         private void Awake()
         {
             health = GetComponent<Health>();
@@ -73,7 +76,7 @@ namespace RPG.Control
             for (int i = 0; i < hits.Length; i++)
             {
                 distances[i] = hits[i].distance;
-            } 
+            }
 
             Array.Sort(distances, hits);
 
@@ -82,11 +85,18 @@ namespace RPG.Control
 
         private bool InteractWithUI()
         {
+            if (Input.GetMouseButtonUp(0)) isDraggingUI = false;
+
             if (EventSystem.current.IsPointerOverGameObject())
             {
+                if (Input.GetMouseButtonDown(0)) isDraggingUI = true;
+
                 SetCursor(ECursorType.UI);
                 return true;
             }
+
+            if (isDraggingUI) return true;
+
             return false;
         }
 

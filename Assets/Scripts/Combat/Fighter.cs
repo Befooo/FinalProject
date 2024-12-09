@@ -5,6 +5,7 @@ using GameDevTV.Saving;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using GameDevTV.Utils;
+using GameDevTV.Inventories;
 
 namespace RPG.Combat
 {
@@ -18,17 +19,38 @@ namespace RPG.Combat
         private LazyValue<Weapon> _currentWeapon;
 
         private Health _target;
+        private Equipment _equipment;
         private float timeSinceLastAttack = Mathf.Infinity;
 
         private void Awake()
         {
             _currentWeaponSO = _defaultWeaponSO;
             _currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
+            _equipment = GetComponent<Equipment>();
+
+            if (_equipment)
+            {
+                _equipment.equipmentUpdated += UpdateWeapon;
+            }
         }
 
         private void Start()
         {
             _currentWeapon.ForceInit();
+        }
+
+        private void UpdateWeapon()
+        {
+            WeaponSO weaponSO = _equipment.GetItemInSlot(EquipLocation.Weapon) as WeaponSO;
+
+            if (weaponSO == null)
+            {
+                EquipWeapon(_defaultWeaponSO);
+            }
+            else
+            {
+                EquipWeapon(weaponSO);
+            }
         }
 
         private Weapon SetupDefaultWeapon()
