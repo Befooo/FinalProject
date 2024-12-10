@@ -9,7 +9,7 @@ using GameDevTV.Inventories;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform _leftHandTransform, _rightHandTransform;
@@ -173,22 +173,6 @@ namespace RPG.Combat
             string weaponName = (string)state;
             WeaponSO weaponSO = Resources.Load<WeaponSO>(weaponName);
             EquipWeapon(weaponSO);
-        }
-
-        public IEnumerable<float> GetAdditiveModifier(EStat eStat)
-        {
-            if (eStat == EStat.DAMAGE)
-            {
-                yield return _currentWeaponSO.WeaponDamage;
-            }
-        }
-
-        public IEnumerable<float> GetPercentageModifiers(EStat eStat)
-        {
-            if (eStat == EStat.DAMAGE)
-            {
-                yield return _currentWeaponSO.PercentageBonus;
-            }
         }
     }
 }

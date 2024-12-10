@@ -2736,6 +2736,7 @@ GameObject:
   - component: {fileID: 9118290533318163146}
   - component: {fileID: 2402969780708934810}
   - component: {fileID: 1456170187523848562}
+  - component: {fileID: 3503448155813778566}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2884,8 +2885,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseDistance: 5
   suspicionTime: 3
+  agroCooldownTime: 5
   patrolPath: {fileID: 0}
   waypointTolerance: 1
+  shoutDistance: 5
   waypointDwelltime: 2
   patrolSpeedFraction: 0.2
 --- !u!114 &8248304550211232416
@@ -2999,6 +3002,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3503448155813778566}
+        m_TargetAssemblyTypeName: RandomDropper, Assembly-CSharp
+        m_MethodName: RandomDrop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6257251107994508217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3068,6 +3083,25 @@ MonoBehaviour:
   _progressionSO: {fileID: 11400000, guid: 66c911a552c7473459279c91f9b7bfc5, type: 2}
   _levelUpVFX: {fileID: 0}
   _shouldUseModifiers: 0
+--- !u!114 &3503448155813778566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7381497481708148372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 480b1fb7bba9aa84394bcb1c2bd60889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scatterDistance: 1
+  dropLibrary:
+  - {fileID: 11400000, guid: 4a5d61b82c694ee47b9360fc8bbb8037, type: 2}
+  - {fileID: 11400000, guid: 4830a47861b0dd34e916e596c2852058, type: 2}
+  - {fileID: 11400000, guid: ff7c7e8bdf816a445b94726afd4217d3, type: 2}
+  - {fileID: 11400000, guid: 25499cafe59e8564b93fd9d97178a655, type: 2}
+  numberOfDrops: 2
 --- !u!1 &7696155227512760491
 GameObject:
   m_ObjectHideFlags: 0

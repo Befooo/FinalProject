@@ -78,7 +78,7 @@ public class BaseStats : MonoBehaviour
 
         foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
         {
-            foreach (float modifiers in provider.GetAdditiveModifier(stat))
+            foreach (float modifiers in provider.GetAdditiveModifiers(stat))
             {
                 total += modifiers;
             }
