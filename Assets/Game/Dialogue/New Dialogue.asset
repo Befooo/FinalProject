@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 538237759894574675}
+  newNodeOffset: {x: 250, y: 0}
 --- !u!114 &538237759894574675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,3 +27,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf3634a8cfdcfd44ab4eac5996fac41, type: 3}
   m_Name: ab25b5f7-b0e3-46f1-adbb-e3d4ce819768
   m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
