@@ -18,6 +18,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogue/Dialogue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -98,7 +99,7 @@
       <workItem from="1732891938189" duration="784000" />
       <workItem from="1733455489605" duration="697000" />
       <workItem from="1734578398598" duration="2638000" />
-      <workItem from="1734666083389" duration="480000" />
+      <workItem from="1734666083389" duration="3687000" />
     </task>
     <servers />
   </component>
