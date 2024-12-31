@@ -9,11 +9,10 @@ namespace RPG.Dialogue
     [System.Serializable]
     public class DialogueNode : ScriptableObject
     {
-        [SerializeField]
-        bool isPlayerSpeaking = false;
-        string text;
-        List<string> children = new List<string>();
-        Rect rect = new Rect(0, 0, 200, 100);
+        [SerializeField] bool isPlayerSpeaking = false;
+        [SerializeField] string text;
+        [SerializeField] List<string> children = new List<string>();
+        [SerializeField] Rect rect = new Rect(0, 0, 200, 100);
 
         public Rect GetRect()
         {
