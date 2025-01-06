@@ -21,6 +21,8 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-8913068669152695775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,6 +45,8 @@ MonoBehaviour:
     y: 115.999985
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-7525718035922172856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +68,8 @@ MonoBehaviour:
     y: 16.8
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-6022682650014255548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +92,8 @@ MonoBehaviour:
     y: 218.39998
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-5593542783370424659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +115,8 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-5173602369251475416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +138,8 @@ MonoBehaviour:
     y: 163.99998
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: Attack
 --- !u!114 &-4752939330923062271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +162,8 @@ MonoBehaviour:
     y: 310.40002
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-2590764586224256994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +186,8 @@ MonoBehaviour:
     y: -0.000030517578
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-2481865220656035271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +210,8 @@ MonoBehaviour:
     y: 82.79997
     width: 200
     height: 100
+  onEnterAction: TestSelection
+  onExitAction: 
 --- !u!114 &-2374874122557745978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +235,8 @@ MonoBehaviour:
     y: 220.79999
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-1062564343494498166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +258,8 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +306,8 @@ MonoBehaviour:
     y: -0.000030517578
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: Attack
 --- !u!114 &538237759894574675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,10 +327,12 @@ MonoBehaviour:
   - 41328993-a45e-4c85-b575-1ce5f53acf61
   rect:
     serializedVersion: 2
-    x: 3.9999924
-    y: 155.19998
+    x: 1.9999924
+    y: 153.69998
     width: 200
     height: 100
+  onEnterAction: TestEntryRoot
+  onExitAction: 
 --- !u!114 &3740308312033062013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +354,8 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &3952728601878765613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +377,8 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &3988581306308429312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +401,8 @@ MonoBehaviour:
     y: 212.79999
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &4104193434508048710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +424,8 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &4166972844371479686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,6 +447,8 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &6555662352582269983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +470,8 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &8819747376458823726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +495,8 @@ MonoBehaviour:
     y: 80.79997
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: TestAIExit
 --- !u!114 &8860230469383723600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,3 +518,5 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 

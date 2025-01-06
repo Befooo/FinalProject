@@ -2582,6 +2582,15 @@ MonoBehaviour:
   - cursorType: 2
     texture: {fileID: 2800000, guid: 2d18e23e3ce249b4489b8bcdd02d3f48, type: 3}
     hotspot: {x: 0, y: 0}
+  - cursorType: 6
+    texture: {fileID: 2800000, guid: 96d4bfdb0d6d8c042bf8fccf6524d239, type: 3}
+    hotspot: {x: 0, y: 0}
+  - cursorType: 3
+    texture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+    hotspot: {x: 0, y: 0}
+  - cursorType: 4
+    texture: {fileID: 2800000, guid: f8c873f1e53e83f4aabf342d6be1dfc3, type: 3}
+    hotspot: {x: 0, y: 0}
   _maxNavMeshProjectionDistance: 1
   _raycastRadius: 1
 --- !u!65 &5622741679347469508
@@ -2726,7 +2735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f858a0098008de84ba04de662f27743f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDialogue: {fileID: 11400000, guid: a82779fa1b77f164fb723449dcc41a69, type: 2}
+  playerName: Herbet Socksworthy
+  testDialogue: {fileID: 0}
 --- !u!1 &4852341335397472432
 GameObject:
   m_ObjectHideFlags: 0

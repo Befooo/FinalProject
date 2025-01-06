@@ -12,7 +12,7 @@ using UnityEngine.AI;
 
 namespace RPG.Control
 {
-    public enum ECursorType { NONE, MOVEMENT, COMBAT, UI, PICK_UP, FULL_PICK_UP }
+    public enum ECursorType { NONE, MOVEMENT, COMBAT, UI, PICK_UP, FULL_PICK_UP, DIALOGUE }
 
     [Serializable]
     struct CursorMapping

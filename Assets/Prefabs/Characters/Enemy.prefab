@@ -2913,7 +2913,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7381497481708148372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f793eae9634f2844bec71fbdd3fee01, type: 3}
   m_Name: 
@@ -3096,11 +3096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scatterDistance: 1
-  dropLibrary:
-  - {fileID: 11400000, guid: 4a5d61b82c694ee47b9360fc8bbb8037, type: 2}
-  - {fileID: 11400000, guid: 4830a47861b0dd34e916e596c2852058, type: 2}
-  - {fileID: 11400000, guid: ff7c7e8bdf816a445b94726afd4217d3, type: 2}
-  - {fileID: 11400000, guid: 25499cafe59e8564b93fd9d97178a655, type: 2}
+  dropLibrary: {fileID: 0}
   numberOfDrops: 2
 --- !u!1 &7696155227512760491
 GameObject:

@@ -13,24 +13,26 @@ namespace RPG.UI
         [SerializeField] private Button nextButton;
         [SerializeField] private Transform choiceRoot;
         [SerializeField] private GameObject choicePrefab;
+        [SerializeField] private Button quitButton;
+        [SerializeField] private TextMeshProUGUI conversantName;
 
         // Start is called before the first frame update
         void Start()
         {
             playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
-            nextButton.onClick.AddListener(Next);
-            UpdateUI();
-        }
-
-        void Next()
-        {
-            playerConversant.Next();
+            playerConversant.OnConversationUpdated += UpdateUI;
+            nextButton.onClick.AddListener(() => playerConversant.Next());
+            quitButton.onClick.AddListener(() => playerConversant.Quit());
             UpdateUI();
         }
 
         // Update is called once per frame
         void UpdateUI()
         {
+            gameObject.SetActive(playerConversant.IsActive());
+            if (!playerConversant.IsActive()) return;
+
+            conversantName.text = playerConversant.GetCurrentConversantName();
             AIText.text = playerConversant.GetText();
             nextButton.gameObject.SetActive(playerConversant.HasNext());
             AIResponse.SetActive(!playerConversant.IsChosing());
