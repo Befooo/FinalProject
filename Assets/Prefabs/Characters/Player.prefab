@@ -2338,6 +2338,7 @@ GameObject:
   - component: {fileID: 2732377389234723829}
   - component: {fileID: 2775623576811678027}
   - component: {fileID: 8169370968412763218}
+  - component: {fileID: 5906141319279308312}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2737,6 +2738,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Herbet Socksworthy
   testDialogue: {fileID: 0}
+--- !u!114 &5906141319279308312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4754788407935198688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a0042c9dadd2545bf2f73fcaf34dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statuses:
+  - quest: {fileID: 11400000, guid: dcaa7453bb3fbdd429bdeaf71cdf093c, type: 2}
+    completedObjectives:
+    - a
+    - b
+  - quest: {fileID: 11400000, guid: f4d3844aafdd129428430986b3c6d43e, type: 2}
+    completedObjectives:
+    - 2
 --- !u!1 &4852341335397472432
 GameObject:
   m_ObjectHideFlags: 0
