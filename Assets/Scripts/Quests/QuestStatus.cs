@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace RPG.Quests
 {
@@ -8,9 +7,8 @@ namespace RPG.Quests
     {
         Quest quest;
         List<string> completedObjectives = new List<string>();
-        private object objectState;
 
-        [System.Serializable]
+        [Serializable]
         class QuestStatusRecord
         {
             public string questName;
