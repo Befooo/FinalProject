@@ -56,5 +56,17 @@ namespace RPG.Quests
             state.completedObjectives = completedObjectives;
             return state;
         }
+
+        internal bool IsComplete()
+        {
+            foreach (var objective in quest.GetObjectives())
+            {
+                if (!completedObjectives.Contains(objective.reference))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
