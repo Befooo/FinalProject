@@ -5,20 +5,31 @@ using UnityEngine;
 [RequireComponent(typeof(Pickup))]
 public class ClickablePickup : MonoBehaviour, IRayCastable
 {
-    Pickup pickUp;
+    Pickup pickup;
 
     private void Awake()
     {
-        pickUp = GetComponent<Pickup>();
+        pickup = GetComponent<Pickup>();
     }
 
-    public ECursorType eCursorType => pickUp.CanBePickedUp() ? ECursorType.PICK_UP : ECursorType.FULL_PICK_UP;
+
+    public CursorType GetCursorType()
+    {
+        if (pickup.CanBePickedUp())
+        {
+            return CursorType.Pickup;
+        }
+        else
+        {
+            return CursorType.FullPickup;
+        }
+    }
 
     public bool HandleRayCast(PlayerController playerController)
     {
         if (Input.GetMouseButtonDown(0))
         {
-            pickUp.PickupItem();
+            pickup.PickupItem();
         }
 
         return true;

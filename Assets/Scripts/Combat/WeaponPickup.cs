@@ -10,7 +10,7 @@ public class WeaponPickup : MonoBehaviour, IRayCastable
     [SerializeField] private float _healthToRestore = 0;
     [SerializeField] private float _reSpawnTime = 5.0f;
 
-    public ECursorType eCursorType => ECursorType.PICK_UP;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -47,6 +47,11 @@ public class WeaponPickup : MonoBehaviour, IRayCastable
         {
             child.gameObject.SetActive(canShow);
         }
+    }
+
+    public CursorType GetCursorType()
+    {
+        return CursorType.Pickup;
     }
 
     public bool HandleRayCast(PlayerController playerController)

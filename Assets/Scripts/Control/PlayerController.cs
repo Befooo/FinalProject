@@ -3,27 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
-using RPG.Combat;
 using RPG.Core;
-using System.Security.Cryptography;
 using UnityEngine.EventSystems;
-using TMPro;
 using UnityEngine.AI;
 
 namespace RPG.Control
 {
-    public enum ECursorType { NONE, MOVEMENT, COMBAT, UI, PICK_UP, FULL_PICK_UP, DIALOGUE }
-
-    [Serializable]
-    struct CursorMapping
-    {
-        public ECursorType cursorType;
-        public Texture2D texture;
-        public Vector2 hotspot;
-    }
     public class PlayerController : MonoBehaviour
     {
         Health health;
+        
+        [Serializable]
+        struct CursorMapping
+        {
+            public CursorType type;
+            public Texture2D texture;
+            public Vector2 hotspot;
+        }
         [SerializeField] private CursorMapping[] _cursorMappings = null;
         [SerializeField] private float _maxNavMeshProjectionDistance = 1.0f;
         [SerializeField] private float _raycastRadius = 1.0f;
@@ -38,12 +34,16 @@ namespace RPG.Control
         void Update()
         {
             if (InteractWithUI()) return;
-            if (health.IsDead) { SetCursor(ECursorType.NONE); return; }
+            if (health.IsDead)
+            {
+                SetCursor(CursorType.None);
+                return;
+            }
 
             if (InteractWithComponent()) return;
             if (InteractWithMovement()) return;
 
-            SetCursor(ECursorType.NONE);
+            SetCursor(CursorType.None);
         }
 
         private bool InteractWithComponent()
@@ -58,7 +58,7 @@ namespace RPG.Control
                 {
                     if (raycastable.HandleRayCast(this))
                     {
-                        SetCursor(raycastable.eCursorType);
+                        SetCursor(raycastable.GetCursorType());
                         return true;
                     }
                 }
@@ -91,7 +91,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButtonDown(0)) isDraggingUI = true;
 
-                SetCursor(ECursorType.UI);
+                SetCursor(CursorType.UI);
                 return true;
             }
 
@@ -100,17 +100,17 @@ namespace RPG.Control
             return false;
         }
 
-        private void SetCursor(ECursorType cursorType)
+        private void SetCursor(CursorType cursorType)
         {
             CursorMapping mapping = GetCursorMapping(cursorType);
             Cursor.SetCursor(mapping.texture, mapping.hotspot, CursorMode.Auto);
         }
 
-        private CursorMapping GetCursorMapping(ECursorType cursorType)
+        private CursorMapping GetCursorMapping(CursorType cursorType)
         {
             foreach (CursorMapping mapping in _cursorMappings)
             {
-                if (mapping.cursorType == cursorType) return mapping;
+                if (mapping.type == cursorType) return mapping;
             }
 
             return _cursorMappings[0];
@@ -127,7 +127,7 @@ namespace RPG.Control
                 {
                     GetComponent<Mover>().StartMoveAction(hit, 1f);
                 }
-                SetCursor(ECursorType.MOVEMENT);
+                SetCursor(CursorType.Movement);
                 return true;
             }
             return false;

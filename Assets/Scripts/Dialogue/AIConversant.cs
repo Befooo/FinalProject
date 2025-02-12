@@ -7,7 +7,11 @@ namespace RPG.Dialogue
     {
         [SerializeField] string conversantName;
         [SerializeField] private Dialogue dialogue = null;
-        public ECursorType eCursorType => ECursorType.DIALOGUE;
+
+        public CursorType GetCursorType()
+        {
+            return CursorType.Dialogue;
+        }
 
         public bool HandleRayCast(PlayerController playerController)
         {

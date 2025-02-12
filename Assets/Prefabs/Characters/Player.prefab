@@ -2323,6 +2323,7 @@ GameObject:
   - component: {fileID: 4719124923729225828}
   - component: {fileID: 2666351541740914698}
   - component: {fileID: 6021216489637732912}
+  - component: {fileID: 2545978604893118988}
   - component: {fileID: 4032770197319226573}
   - component: {fileID: 6757082608417392442}
   - component: {fileID: 8754057546420447866}
@@ -2449,6 +2450,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2545978604893118988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4754788407935198688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653eb7c7f540fc24a98a4da0af4458d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4032770197319226573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2750,14 +2763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a0042c9dadd2545bf2f73fcaf34dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statuses:
-  - quest: {fileID: 11400000, guid: dcaa7453bb3fbdd429bdeaf71cdf093c, type: 2}
-    completedObjectives:
-    - a
-    - b
-  - quest: {fileID: 11400000, guid: f4d3844aafdd129428430986b3c6d43e, type: 2}
-    completedObjectives:
-    - 2
 --- !u!1 &4852341335397472432
 GameObject:
   m_ObjectHideFlags: 0

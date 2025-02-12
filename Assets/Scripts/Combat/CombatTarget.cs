@@ -9,7 +9,10 @@ namespace RPG.Combat
     [RequireComponent(typeof(Health))]
     public class CombatTarget : MonoBehaviour, IRayCastable
     {
-        public ECursorType eCursorType => ECursorType.COMBAT;
+        public CursorType GetCursorType()
+        {
+            return CursorType.Combat;
+        }
 
         public bool HandleRayCast(PlayerController playerController)
         {
